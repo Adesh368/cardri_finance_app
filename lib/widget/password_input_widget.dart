@@ -1,3 +1,4 @@
+import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cardri_finance/reusable_custom_widget/textfield_widget.dart';
 
@@ -19,23 +20,7 @@ class PasswordInputWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Create Password',
-          textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xff1B1B1B),
-              ),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          'Create a new password',
-          textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: const Color(0xff474256),
-              ),
-        ),
+        const TitleHeaderWidget(title: 'Create Password', subtitle: 'Create a new password'),
         const SizedBox(height: 15),
         TextFieldWidget(
           image: Image.asset('assets/eyetrue.png'),

@@ -1,4 +1,3 @@
-
 import 'package:cardri_finance/reusable_custom_widget/nav_button.dart';
 import 'package:cardri_finance/reusable_custom_widget/onboarding_content.dart';
 import 'package:cardri_finance/data/onboarding_text_data.dart';

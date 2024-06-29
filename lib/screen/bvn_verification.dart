@@ -1,4 +1,7 @@
+import 'package:cardri_finance/reusable_custom_widget/backbutton_widegt.dart';
 import 'package:cardri_finance/reusable_custom_widget/help_bottom_bar.dart';
+import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
+import 'package:cardri_finance/screen/bvn_user_input_screen.dart';
 import 'package:flutter/material.dart';
 
 class BvnVerifictionScreen extends StatefulWidget {
@@ -20,41 +23,14 @@ class _BvnVerifictionScreenState extends State<BvnVerifictionScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    
-                    width: 32,
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Center(
-                      child: Icon(Icons.arrow_back),
-                    ),
-                  ),
-                ),
+                const BackButtonWidget(),
                 const SizedBox(height: 20),
-                Text(
-                  'Verification',
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xff1B1B1B),
-                      ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Select the type of ID to validate',
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        color: const Color(0xff474256),
-                      ),
-                ),
+                const TitleHeaderWidget(title: 'Verification', subtitle: 'Select the type of ID to validate'),
                 const SizedBox(height: 15),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                   child: Container(
                     height: 88,
                     decoration: BoxDecoration(
@@ -74,7 +50,12 @@ class _BvnVerifictionScreenState extends State<BvnVerifictionScreen> {
                 ),
                 const SizedBox(height: 15),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (ctx) {
+                      return const BvnUserInputScreen();
+                    }));
+                  },
                   child: Container(
                     height: 88,
                     decoration: BoxDecoration(
@@ -109,10 +90,10 @@ class _BvnVerifictionScreenState extends State<BvnVerifictionScreen> {
                               .bodySmall!
                               .copyWith(fontSize: 10),
                           'You can proceed with either one now, but you will be \nrequired to provide the other for subsequent upgrade.')
-                    ],
+                    ]
                   ),
                 ),
-              ],
+              ]
             ),
           ),
           const Spacer(),

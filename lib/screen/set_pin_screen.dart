@@ -1,3 +1,4 @@
+import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
 import 'package:cardri_finance/screen/verify_pin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cardri_finance/reusable_custom_widget/pin_button_widget.dart';
@@ -63,57 +64,48 @@ class _SetPinScreenState extends State<SetPinScreen> {
       backgroundColor:
           errorMessage ? const Color(0xff6C757D) : const Color(0xffF5F2FB),
       body: SafeArea(
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: keyboardSpace),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
+        child: Stack(children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: keyboardSpace),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Set 4-Digit PIN',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall!
-                                .copyWith(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color(0xff1B1B1B),
-                                ),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            'Choose a 5-Digit Pin to login in to your account \nsecurely.',
-                            style:
-                                Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      color: const Color(0xff474256),
-                                    ),
-                          ),
+                          const TitleHeaderWidget(
+                              title: 'Set 4-Digit PIN',
+                              subtitle:
+                                  'Choose a 5-Digit Pin to login in to your account \nsecurely.'),
                           const SizedBox(height: 50),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              PinInputBox(controller: _inputboxcontroller1,obscuremode: false),
-                              PinInputBox(controller: _inputboxcontroller2,obscuremode: false),
-                              PinInputBox(controller: _inputboxcontroller3,obscuremode: false),
-                              PinInputBox(controller: _inputboxcontroller4,obscuremode: false),
+                              PinInputBox(
+                                  controller: _inputboxcontroller1,
+                                  obscuremode: false),
+                              PinInputBox(
+                                  controller: _inputboxcontroller2,
+                                  obscuremode: false),
+                              PinInputBox(
+                                  controller: _inputboxcontroller3,
+                                  obscuremode: false),
+                              PinInputBox(
+                                  controller: _inputboxcontroller4,
+                                  obscuremode: false),
                             ],
                           ),
                           const SizedBox(height: 50),
-                          Column(
-                            children: [
-                              buildButtonRow(['1', '2', '3']),
-                              const SizedBox(height: 30),
-                              buildButtonRow(['4', '5', '6']),
-                              const SizedBox(height: 30),
-                              buildButtonRow(['7', '8', '9']),
-                              const SizedBox(height: 30),
-                              Row(
+                          Column(children: [
+                            buildButtonRow(['1', '2', '3']),
+                            const SizedBox(height: 30),
+                            buildButtonRow(['4', '5', '6']),
+                            const SizedBox(height: 30),
+                            buildButtonRow(['7', '8', '9']),
+                            const SizedBox(height: 30),
+                            Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -127,21 +119,17 @@ class _SetPinScreenState extends State<SetPinScreen> {
                                     child: Image.asset('assets/cancel.png'),
                                   ),
                                   const SizedBox(width: 45),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 58),
-                  ],
-                ),
+                                ]),
+                          ]),
+                        ]),
+                  ),
+                  const SizedBox(height: 58),
+                ],
               ),
             ),
-            const HelpBottomBar(),
-          ],
-        ),
+          ),
+          const HelpBottomBar(),
+        ]),
       ),
     );
   }

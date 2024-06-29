@@ -1,4 +1,5 @@
 import 'package:cardri_finance/reusable_custom_widget/nav_button.dart';
+import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
 import 'package:cardri_finance/screen/create_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,23 +39,7 @@ class PersonalDetailsForm extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Personal Details',
-          textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xff1B1B1B),
-              ),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          'Please fill the field provided correctly.',
-          textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: const Color(0xff474256),
-              ),
-        ),
+       const TitleHeaderWidget(title: 'Personal Details', subtitle: 'Please fill the field provided correctly.'),
         const SizedBox(height: 15),
         TextFieldWidget(
             controller: nameController,
