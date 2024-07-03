@@ -2,6 +2,7 @@ import 'package:cardri_finance/reusable_custom_widget/backbutton_widegt.dart';
 import 'package:cardri_finance/reusable_custom_widget/help_bottom_bar.dart';
 import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
 import 'package:cardri_finance/screen/bvn_user_input_screen.dart';
+import 'package:cardri_finance/screen/nin_user_input.dart';
 import 'package:flutter/material.dart';
 
 class BvnVerifictionScreen extends StatefulWidget {
@@ -23,13 +24,16 @@ class _BvnVerifictionScreenState extends State<BvnVerifictionScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const BackButtonWidget(),
+                //const BackButtonWidget(),
                 const SizedBox(height: 20),
                 const TitleHeaderWidget(title: 'Verification', subtitle: 'Select the type of ID to validate'),
                 const SizedBox(height: 15),
                 InkWell(
                   onTap: () {
-                    
+                     Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (ctx) {
+                      return const NinUserInputScreen();
+                    }));
                   },
                   child: Container(
                     height: 88,

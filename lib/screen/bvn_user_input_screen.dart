@@ -57,7 +57,7 @@ class _BvnUserInputScreenState extends State<BvnUserInputScreen> {
                               labeled: 'Enter your 11 digit BVN',
                               textInputType: TextInputType.number,
                               textobsure: false),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 40),
                           Container(
                             height: 64,
                             decoration: BoxDecoration(
@@ -95,7 +95,7 @@ class _BvnUserInputScreenState extends State<BvnUserInputScreen> {
                                   ]),
                                 ]),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 40),
                           NavigationStyle('continue', () {})
                         ]),
                         if(errorMessage)
