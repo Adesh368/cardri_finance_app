@@ -65,73 +65,68 @@ class _VerifyPinScreenState extends State<VerifyPinScreen> {
           errorMessage ? const Color(0xff6C757D) : const Color(0xffF5F2FB),
       body: SafeArea(
         child: Stack(children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(bottom: keyboardSpace),
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const BackButtonWidget(),
-                        const SizedBox(height: 10),
-                        Text(
-                          'Verify Pin',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .copyWith(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: const Color(0xff1B1B1B),
+          Padding(
+            padding: EdgeInsets.only(bottom: keyboardSpace,left: 15,right: 15,top: 15),
+            child: Column(children: [
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const BackButtonWidget(),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Verify Pin',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xff1B1B1B),
+                          ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Choose a 5-Digit Pin to login in to your account \nsecurely.',
+                      style:
+                          Theme.of(context).textTheme.bodySmall!.copyWith(
+                                color: const Color(0xff474256),
                               ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          'Choose a 5-Digit Pin to login in to your account \nsecurely.',
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: const Color(0xff474256),
-                                  ),
-                        ),
-                        const SizedBox(height: 50),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              PinInputBox(controller: _inputboxcontroller1),
-                              PinInputBox(controller: _inputboxcontroller2),
-                              PinInputBox(controller: _inputboxcontroller3),
-                              PinInputBox(controller: _inputboxcontroller4),
-                            ]),
-                        const SizedBox(height: 50),
-                        Column(children: [
-                          buildButtonRow(['1', '2', '3']),
-                          const SizedBox(height: 30),
-                          buildButtonRow(['4', '5', '6']),
-                          const SizedBox(height: 30),
-                          buildButtonRow(['7', '8', '9']),
-                          const SizedBox(height: 30),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const SizedBox(width: 70),
-                                PinButton(
-                                  btntxt: '0',
-                                  onPressed: () => valueFunction('0'),
-                                ),
-                                InkWell(
-                                  onTap: clearLastInput,
-                                  child: Image.asset('assets/cancel.png'),
-                                ),
-                                const SizedBox(width: 45),
-                              ]),
+                    ),
+                    const SizedBox(height: 50),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          PinInputBox(controller: _inputboxcontroller1),
+                          PinInputBox(controller: _inputboxcontroller2),
+                          PinInputBox(controller: _inputboxcontroller3),
+                          PinInputBox(controller: _inputboxcontroller4),
                         ]),
-                      ]),
-                ),
-                const SizedBox(height: 58),
-              ]),
-            ),
+                    const SizedBox(height: 50),
+                    Column(children: [
+                      buildButtonRow(['1', '2', '3']),
+                      const SizedBox(height: 30),
+                      buildButtonRow(['4', '5', '6']),
+                      const SizedBox(height: 30),
+                      buildButtonRow(['7', '8', '9']),
+                      const SizedBox(height: 30),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox(width: 70),
+                            PinButton(
+                              btntxt: '0',
+                              onPressed: () => valueFunction('0'),
+                            ),
+                            InkWell(
+                              onTap: clearLastInput,
+                              child: Image.asset('assets/cancel.png'),
+                            ),
+                            const SizedBox(width: 45),
+                          ]),
+                    ]),
+                  ]),
+              //const SizedBox(height: 58),
+            ]),
           ),
           const HelpBottomBar(),
         ]),

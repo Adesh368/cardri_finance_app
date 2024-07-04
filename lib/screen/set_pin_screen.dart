@@ -65,67 +65,62 @@ class _SetPinScreenState extends State<SetPinScreen> {
           errorMessage ? const Color(0xff6C757D) : const Color(0xffF5F2FB),
       body: SafeArea(
         child: Stack(children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(bottom: keyboardSpace),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(
+            padding: EdgeInsets.only(bottom: keyboardSpace,left: 15,right: 15,top: 15),
+            child: Column(
+              children: [
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const TitleHeaderWidget(
+                          title: 'Set 4-Digit PIN',
+                          subtitle:
+                              'Choose a 5-Digit Pin to login in to your account \nsecurely.'),
+                      const SizedBox(height: 50),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const TitleHeaderWidget(
-                              title: 'Set 4-Digit PIN',
-                              subtitle:
-                                  'Choose a 5-Digit Pin to login in to your account \nsecurely.'),
-                          const SizedBox(height: 50),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          PinInputBox(
+                              controller: _inputboxcontroller1,
+                              obscuremode: false),
+                          PinInputBox(
+                              controller: _inputboxcontroller2,
+                              obscuremode: false),
+                          PinInputBox(
+                              controller: _inputboxcontroller3,
+                              obscuremode: false),
+                          PinInputBox(
+                              controller: _inputboxcontroller4,
+                              obscuremode: false),
+                        ],
+                      ),
+                      const SizedBox(height: 50),
+                      Column(children: [
+                        buildButtonRow(['1', '2', '3']),
+                        const SizedBox(height: 30),
+                        buildButtonRow(['4', '5', '6']),
+                        const SizedBox(height: 30),
+                        buildButtonRow(['7', '8', '9']),
+                        const SizedBox(height: 30),
+                        Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
                             children: [
-                              PinInputBox(
-                                  controller: _inputboxcontroller1,
-                                  obscuremode: false),
-                              PinInputBox(
-                                  controller: _inputboxcontroller2,
-                                  obscuremode: false),
-                              PinInputBox(
-                                  controller: _inputboxcontroller3,
-                                  obscuremode: false),
-                              PinInputBox(
-                                  controller: _inputboxcontroller4,
-                                  obscuremode: false),
-                            ],
-                          ),
-                          const SizedBox(height: 50),
-                          Column(children: [
-                            buildButtonRow(['1', '2', '3']),
-                            const SizedBox(height: 30),
-                            buildButtonRow(['4', '5', '6']),
-                            const SizedBox(height: 30),
-                            buildButtonRow(['7', '8', '9']),
-                            const SizedBox(height: 30),
-                            Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const SizedBox(width: 70),
-                                  PinButton(
-                                    btntxt: '0',
-                                    onPressed: () => valueFunction('0'),
-                                  ),
-                                  InkWell(
-                                    onTap: clearLastInput,
-                                    child: Image.asset('assets/cancel.png'),
-                                  ),
-                                  const SizedBox(width: 45),
-                                ]),
-                          ]),
-                        ]),
-                  ),
-                  const SizedBox(height: 58),
-                ],
-              ),
+                              const SizedBox(width: 70),
+                              PinButton(
+                                btntxt: '0',
+                                onPressed: () => valueFunction('0'),
+                              ),
+                              InkWell(
+                                onTap: clearLastInput,
+                                child: Image.asset('assets/cancel.png'),
+                              ),
+                              const SizedBox(width: 45),
+                            ]),
+                      ]),
+                    ]),
+                //const SizedBox(height: 58),
+              ],
             ),
           ),
           const HelpBottomBar(),

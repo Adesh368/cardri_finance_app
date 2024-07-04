@@ -30,7 +30,8 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
-
+    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor:
           errorMessage ? const Color(0xff6C757D) : const Color(0xffF5F2FB),
@@ -38,14 +39,13 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
         child: Stack(
           children: [
             SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: keyboardSpace),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 15),
-                      child: Stack(
+              child: Center(
+                child: Container(
+                  width: screenWidth-15,
+                  margin: EdgeInsets.only(bottom: keyboardSpace,top: 15),
+                  child: Column(
+                    children: [
+                      Stack(
                         children: [
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -75,9 +75,9 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                                 erroeimage1: 'assets/er.png'),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 58),
-                  ],
+                      const SizedBox(height: 58),
+                    ],
+                  ),
                 ),
               ),
             ),

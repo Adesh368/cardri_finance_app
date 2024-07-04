@@ -39,69 +39,71 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding:
-              const EdgeInsets.only(left: 15, right: 15, bottom: 40, top: 15),
-          child: Column(
-            children: [
-              SizedBox(
-                height: screenHeight * 0.7,
-                width: screenWidth,
-                child: Column(children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                      contents.length,
-                      (index) => Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 1),
-                        width: 86,
-                        height: 6,
-                        decoration: BoxDecoration(
-                          color: (index == 0 || index <= current)
-                              ? const Color(0xffD70D4A)
-                              : const Color(0xffffffff),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10),
+        child: Center(
+          child: Container(
+            width: screenWidth - 15,
+            margin: const EdgeInsets.only(top: 15,bottom: 40),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.7,
+                  width: double.infinity,
+                  child: Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: List.generate(
+                        contents.length,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 1),
+                          width: 86,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: (index == 0 || index <= current)
+                                ? const Color(0xffD70D4A)
+                                : const Color(0xffB4ACCA),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 35,),
-                  Expanded(
-                    child: PageView.builder(
-                      onPageChanged: _onPageChanged,
-                      controller: _controller,
-                      itemCount: contents.length,
-                      itemBuilder: (ctx, index) {
-                        return OnboardingContentWidget(
-                          image: contents[index].image,
-                          text: contents[index].text,
-                          subtext: contents[index].subtext,
-                        );
-                      },
+                    const SizedBox(height: 35,),
+                    Expanded(
+                      child: PageView.builder(
+                        onPageChanged: _onPageChanged,
+                        controller: _controller,
+                        itemCount: contents.length,
+                        itemBuilder: (ctx, index) {
+                          return OnboardingContentWidget(
+                            image: contents[index].image,
+                            text: contents[index].text,
+                            subtext: contents[index].subtext,
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ]),
-              ),
-              const Spacer(),
-              NavigationStyle(
-                'Create an Account',
-                () {
-                  if (isLastPageReached) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                    );
-                  } else {
-                    _controller?.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn,
-                    );
-                  }
-                },
-              ),
-            ],
+                  ]),
+                ),
+                const Spacer(),
+                NavigationStyle(
+                  'Create an Account',
+                  () {
+                    if (isLastPageReached) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                      );
+                    } else {
+                      _controller?.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
