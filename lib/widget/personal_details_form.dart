@@ -1,3 +1,4 @@
+import 'package:cardri_finance/reusable_custom_widget/backbutton_widegt.dart';
 import 'package:cardri_finance/reusable_custom_widget/nav_button.dart';
 import 'package:cardri_finance/reusable_custom_widget/title_header_widget.dart';
 import 'package:cardri_finance/screen/create_password_screen.dart';
@@ -39,6 +40,8 @@ class PersonalDetailsForm extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+       const BackButtonWidget(),
+       const SizedBox(height: 15),
        const TitleHeaderWidget(title: 'Personal Details', subtitle: 'Please fill the field provided correctly.'),
         const SizedBox(height: 15),
         TextFieldWidget(

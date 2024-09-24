@@ -1,7 +1,7 @@
 import 'package:cardri_finance/reusable_custom_widget/nav_button.dart';
 import 'package:cardri_finance/reusable_custom_widget/onboarding_content.dart';
 import 'package:cardri_finance/data/onboarding_text_data.dart';
-import 'package:cardri_finance/screen/sign_up.dart';
+import 'package:cardri_finance/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -92,7 +92,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (isLastPageReached) {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                        MaterialPageRoute(builder: (context) => const LoginScreen()),
                       );
                     } else {
                       _controller?.nextPage(

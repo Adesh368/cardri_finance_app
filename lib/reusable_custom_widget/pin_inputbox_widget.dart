@@ -34,6 +34,7 @@ class PinInputBox extends StatelessWidget {
         controller: controller,
         obscureText: obscuremode,
         textAlign: TextAlign.center,
+        keyboardType: TextInputType.number,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,
